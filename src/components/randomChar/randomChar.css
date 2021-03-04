@@ -1,0 +1,27 @@
+body {
+    background-color: black;
+}
+
+h4 {
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.random-block {
+    background-color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 5px;
+}
+
+.list-group {
+    flex-direction: column;
+    background-color: white;
+    border-radius: 15px;
+    padding: 0;
+}
+
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid rgba(0,0,0,0.35);
+}
