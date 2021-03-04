@@ -6,7 +6,7 @@ import RandomChar from '../randomChar';
 import CharacterPage from '../characterPage';
 import ErrorMessage from '../errorMessage';
 import ItemList from '../itemList';
-import CharDetails from '../charDetails';
+import itemDetails from '../itemDetails';
 
 import gotService from '../../services/gotServices';
 import './app.css';
@@ -65,7 +65,7 @@ export default class App extends Component {
                                 renderItem={({name, publisher}) => `${name} (${publisher})`}/>
                         </Col>
                         <Col md='6'>
-                            <CharDetails charId={this.state.selectedChar}/>
+                            <itemDetails charId={this.state.selectedChar}/>
                         </Col>
                     </Row>
                     <Row>
@@ -76,7 +76,7 @@ export default class App extends Component {
                                 renderItem={({name, region}) => `${name} (${region})`}/>
                         </Col>
                         <Col md='6'>
-                            <CharDetails charId={this.state.selectedChar}/>
+                            <itemDetails charId={this.state.selectedChar}/>
                         </Col>
                     </Row>
                 </Container>
