@@ -91,13 +91,14 @@
   transform-origin: 142px 58px;
 }
 .loadingio-spinner-spin-7a5z4meq86b {
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  min-height: 200px;
+  height: auto;
   display: inline-block;
   overflow: hidden;
 }
 .ldio-az7fcjxuvd {
-  width: 100%;
+  width: 50%;
   height: 100%;
   margin: 0 auto;
   position: relative;
