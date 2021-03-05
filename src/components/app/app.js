@@ -5,7 +5,7 @@ import Header from '../header';
 import RandomChar from '../randomChar';
 import ErrorMessage from '../errorMessage';
 
-import {CharacterPage, BooksPage, HousesPage} from '../pages';
+import {CharacterPage, BooksPage, HousesPage, BooksItem} from '../pages';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 import gotService from '../../services/gotServices';
@@ -57,16 +57,27 @@ export default class App extends Component {
                                         onClick={this.toggleRandomChar}>Toggle random character</button>
                             </Col>
                         </Row>
-                        <Route path='/' component={() => <h1>Welcome to GOT DB</h1>} exact/>
+                        <Route exact path='/' component={() => <h1>Welcome to GOT DB</h1>} exact/>
                         <Route 
                             path='/characters'
                             component={CharacterPage}/>
                         <Route 
+                            path='/houses'
+                            component={HousesPage}/>
+                        <Route 
+                            exact
                             path='/books'
                             component={BooksPage}/>
                         <Route 
-                            path='/houses'
-                            component={HousesPage}/>
+                            path='/books/:id'
+                            render={
+                                ({match, location, history}) => {
+                                    
+                                    const {id} = match.params;
+
+                                    return <BooksItem bookId={id}/>
+                                }
+                            }/>
 
                     </Container>
                 </div>

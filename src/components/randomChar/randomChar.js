@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import gotService from '../../services/gotServices';
 import Spinner from '../spinner';
 import ErrorMessage from '../errorMessage';
+import PropTypes from 'prop-types';
 
 import './randomChar.css';
 
@@ -16,10 +17,18 @@ export default class RandomChar extends Component {
         error: false
     }
 
+
+    static defaultProps = {
+        interval: 5000
+    }
+    
+    static propTypes = {
+        interval: PropTypes.number
+    }
+
     componentDidMount () {
-        console.log('mounting');
         this.updateCharacter();
-        this.timerId = setInterval(this.updateCharacter, 5000);
+        this.timerId = setInterval(this.updateCharacter, this.props.interval);
 
     }
 
@@ -52,8 +61,6 @@ export default class RandomChar extends Component {
     }
 
     render () {
-        console.log('render');
-
         const {char, loading, error} = this.state;
 
         const errorMessage = error ? <ErrorMessage/> : null;
@@ -69,6 +76,7 @@ export default class RandomChar extends Component {
         )
     }
 }
+
 
 const View = ({char}) => {
     const {name, gender, born, died, culture} = char;
