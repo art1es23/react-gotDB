@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import ErrorMessage from '../errorMessage';
 import Spinner from '../spinner';
 import PropTypes from 'prop-types';
-
-import gotService from '../../services/gotServices';
 import './itemList.css';
 
 class ItemList extends Component {
@@ -37,7 +35,7 @@ class ItemList extends Component {
     }
 }
 
-const withData = (View, getData) => {
+const withData = (View) => {
     return class extends Component {
 
         state = {
@@ -54,6 +52,8 @@ const withData = (View, getData) => {
         }
     
         componentDidMount () {
+    
+            const {getData} = this.props;
     
             getData()
                 .then((data) => {
@@ -97,6 +97,4 @@ const withData = (View, getData) => {
     }
 }
 
-const {getAllCharacters} = new gotService();
-
-export default withData(ItemList, getAllCharacters);
+export default withData(ItemList);
